@@ -15,8 +15,11 @@ setInterval(() => {
 }, 5000);
 
 listener.on('badge_packet', (packet) => {
+
   let id = packet.splice(0, 1)[0];
   let time = +(new Date());
+
+  console.log(`packet recieved -> ${id}`);
 
   let obj = {
     id: id,

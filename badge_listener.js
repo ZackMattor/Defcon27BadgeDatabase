@@ -11,7 +11,7 @@ class BadgeListener extends EventEmitter {
     client.on('connect', () => {
       client.subscribe('scanner', (err) => {
         if (!err) {
-          console.log('Connected!');
+          console.log('BadgeListener -> Connected to the MQTT server!');
         }
       })
     })

@@ -10,6 +10,7 @@ class FrontendServer {
     app.set('view engine', 'handlebars');
 
     app.get('/', (req, res) => {
+      console.log(`FrontendServer -> Rendering Badge index`);
       let badges = Object.keys(this.data).map((key) => {
         return {
           id: key,
@@ -18,14 +19,12 @@ class FrontendServer {
         };
       });
 
-      console.log(badges);
-
       res.render('index', { badges: badges});
     });
 
     app.get('/badge/:id', (req, res) => {
-      console.log(this.data[req.params.id]);
-      res.render('badge_show', { data: this.data[req.params.id] });
+      console.log(`FrontendServer -> Rendering badge show for id: ${req.params.id}`);
+      res.render('badge_show', { id: req.params.id, data: this.data[req.params.id] });
     });
 
     app.listen(port, () => console.log(`Example app listening on port ${port}!`));
