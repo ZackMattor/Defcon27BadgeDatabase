@@ -37,6 +37,4 @@ listener.on('badge_packet', (packet) => {
   if(!data[id]) data[id] = [];
   data[id].push(obj);
   server.setData(data);
-
-  console.log(data);
 });
