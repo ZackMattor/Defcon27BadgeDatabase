@@ -4,7 +4,7 @@ var exphbs  = require('express-handlebars');
 class FrontendServer {
   constructor() {
     const app = express();
-    const port = 3030;
+    const port = process.env.FRONTEND_PORT || 3030;
 
     app.engine('handlebars', exphbs());
     app.set('view engine', 'handlebars');
